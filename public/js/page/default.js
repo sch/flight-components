@@ -4,7 +4,8 @@ define(function (require) {
 
   require('bower_components/moment/moment');
 
-  var flightComponents = require('bower_components/flight-components/lib/flight-components');
+  var $ = require('jquery');
+  var flightComponents = require('flight-components');
   var uiFlightComponents = require('component/ui_flight_components');
   var uiResultFilter = require('component/ui_result_filter');
   var uiTopComponentsList = require('component/ui_top_components_list');
@@ -23,10 +24,7 @@ define(function (require) {
       except: ['flight-jasmine', 'flight-mocha']
     });
 
-    uiResultFilter.attachTo("#filter", {
-      resultSelector: '#components'
-    });
-
+    uiResultFilter.attachTo("#filter");
 
     uiTopComponentsList.attachTo('#top-stars', {
       compare: 'stars'
@@ -38,12 +36,16 @@ define(function (require) {
 
     uiTopComponentsList.attachTo('#recently-created', {
       compare: 'created',
-      compareFunction: function (rawDate) {
-        return new Date(rawDate);
+      compareFunction: function() {
+        return function (rawDate) {
+          return new Date(rawDate);
+        };
       },
-      displayFunction: function (rawDate) {
-        var date = new Date(rawDate);
-        return moment(date).fromNow();
+      displayFunction: function() {
+        return function (rawDate) {
+          var date = new Date(rawDate);
+          return moment(date).fromNow();
+        };
       }
     });
 

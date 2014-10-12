@@ -9,10 +9,10 @@ define(function (require) {
   return defineComponent(uiTopComponentsList);
 
   function uiTopComponentsList() {
-    this.defaultAttrs({
+    this.attributes({
       compare: '',
-      compareFunction: function (compare) { return compare; },
-      displayFunction: function (stat) { return stat; },
+      compareFunction: function () { return _.identity; },
+      displayFunction: function () { return _.identity; },
       maxItems: 5
     });
 

@@ -3,7 +3,9 @@
 requirejs.config({
   baseUrl: '',
   paths: {
+    'jquery': 'bower_components/jquery/dist/jquery',
     'flight': 'bower_components/flight',
+    'flight-components': 'bower_components/flight-components/lib/flight-components',
     'mustache': 'bower_components/mustache',
     'underscore': 'bower_components/underscore-amd/underscore',
     'component': 'js/component',
@@ -17,7 +19,7 @@ require(
     'flight/lib/registry',
     'flight/lib/advice',
     'flight/lib/logger',
-    'flight/tools/debug/debug'
+    'flight/lib/debug'
   ],
 
   function(compose, registry, advice, withLogging, debug) {

@@ -2,15 +2,13 @@ define(function (require) {
 
   'use strict';
 
+  var $ = require('jquery');
   var defineComponent = require('flight/lib/component');
   var Mustache = require('mustache/mustache');
 
   return defineComponent(uiFlightComponents);
 
   function uiFlightComponents() {
-    this.defaultAttrs({
-    });
-
     this.htmlFor = function (component) {
       return Mustache.render(
         "<tr class='component'>" +

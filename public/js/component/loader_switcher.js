@@ -7,7 +7,7 @@ define(function (require) {
   return defineComponent(elementSwitcher);
 
   function elementSwitcher() {
-    this.defaultAttrs({
+    this.attributes({
       loaderSelector: '.loader',
       mainSelector: '.main'
     });
